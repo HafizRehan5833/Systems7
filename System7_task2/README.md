@@ -16,7 +16,3 @@
   See [day-06/example.py](./day-06/example.py).
 - **Day 7:** Interpreted linear-regression coefficients and random-forest feature importance.
   See [day-07/example.py](./day-07/example.py).
-
-## Main task deliverables
-
-The completed machine-learning tasks are documented in [tasks](./tasks).
