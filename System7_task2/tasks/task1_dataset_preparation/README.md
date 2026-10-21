@@ -14,8 +14,17 @@ Load the house dataset, explore it, clean it, add a useful label, and split it i
 6. Save the splits to `data/processed/`.
 
 ## Run
+
+From the `System7_task2/tasks` directory:
+
 ```bash
-python tasks/task1_dataset_preparation/prepare_dataset.py
+uv run python .\task1_dataset_preparation\prepare_dataset.py
+```
+
+Or, from the `System7_task2` directory:
+
+```bash
+uv run --project .\tasks python .\tasks\task1_dataset_preparation\prepare_dataset.py
 ```
 
 ## Deliverables
