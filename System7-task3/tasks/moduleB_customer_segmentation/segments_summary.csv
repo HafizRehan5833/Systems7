@@ -1,0 +1,5 @@
+segment,customers,age,annual_income,spending_score,visits_per_month,avg_basket,tenure_months
+0,130,34.9,39505.3,59.6,9.9,19.8,25.1
+1,183,44.8,89892.1,75.6,6.0,119.9,48.3
+2,168,23.8,27854.0,30.2,2.1,26.5,5.8
+3,119,52.2,71089.3,40.0,1.0,250.5,12.2
