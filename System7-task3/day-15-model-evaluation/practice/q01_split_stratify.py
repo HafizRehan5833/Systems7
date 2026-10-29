@@ -1,12 +1,9 @@
-"""Q1 (Easy): Split a dataset 80/20 with a fixed random_state and stratify.
-Print the shape and class balance of both parts.
-"""
+
 from sklearn.datasets import load_breast_cancer
 from sklearn.model_selection import train_test_split
 
 X, y = load_breast_cancer(return_X_y=True, as_frame=True)
 
-# stratify=y keeps the same class ratio in train and test
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.20, random_state=42, stratify=y
 )
