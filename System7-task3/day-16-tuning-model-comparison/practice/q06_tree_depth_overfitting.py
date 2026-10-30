@@ -1,6 +1,3 @@
-"""Q6 (Medium): Train a decision tree with max_depth from 1 to 15 and plot
-training versus test score to show overfitting.
-"""
 from pathlib import Path
 
 import matplotlib
