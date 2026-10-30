@@ -196,7 +196,6 @@ uv run .\day-16-tuning-model-comparison\practice\q08_svm_tuning.py
 ```
 
 ---
-
 ### 3. Running Module Capstone Tasks
 
 ```powershell
