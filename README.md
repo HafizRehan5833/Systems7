@@ -1,191 +1,224 @@
-# System7 Project Summary
+# Systems 7 — Machine Learning & Deep Learning Engineering Repository
 
-This repository contains the work completed across two internship tracks: a Python/data-analysis track and a machine-learning workflow track. The material is split between the root project documentation, the Task 1 exercises, and the Task 2 machine-learning tasks.
+This repository represents the comprehensive work, practice exercises, and end-to-end practical tasks completed across all three progressive tracks of the **Systems 7** program:
+1. **Track 1 (`system7_task1`)**: Python Foundations, Data Structures, OOP, and Data Analysis
+2. **Track 2 (`System7_task2`)**: Mathematics, Descriptive Statistics, and Classical Machine Learning Workflows
+3. **Track 3 (`System7-task3`)**: Advanced Model Evaluation, Hyperparameter Tuning, Deep Learning, and CNNs
 
-## Repository overview
+> [!IMPORTANT]
+> **Execution Records (`Run_file/`):**
+> For every executed script and practice question, output records and terminal screenshots are organized inside each day's dedicated `Run_file/` folder (e.g. `day-15-model-evaluation/Run_file/`, `day-16-tuning-model-comparison/Run_file/`), providing visual proof and verified results for every run.
 
-- Root project: [README.md](./README.md)
-- Python fundamentals and data analysis: [system7_task1/README.md](./system7_task1/README.md)
-- Machine-learning study materials and tasks: [System7_task2/README.md](./System7_task2/README.md)
-- ML glossary and terminology: [System7_task2/Definitions/DEFINITIONS.md](./System7_task2/Definitions/DEFINITIONS.md)
+---
 
-## 1) Internship foundation
+## Repository Architecture & Directory Structure
 
-The root README describes the internship as a collection of learning exercises and experiments, with a primary focus on Python fundamentals, data analysis, and applied ML. The work is organized by task and day, and the project emphasizes clean scripts, small runnable exercises, and generated outputs stored next to the code that produces them.
+```
+systems7/
+├── README.md                                  <- Root repository guide and summary
+├── .gitignore
+│
+├── system7_task1/                             <- TRACK 1: Python & Data Analysis Foundations
+│   ├── README.md                              <- Task 1 detailed documentation
+│   ├── pyproject.toml / uv.lock               <- Dependency management (uv)
+│   ├── day1/                                  <- Python variables, syntax, I/O (basics.py)
+│   ├── day2/                                  <- Control flow & game loops (calculator_game.py)
+│   ├── day3/                                  <- Lists, dictionaries, tuples, sets (data_structures.py)
+│   ├── day4/                                  <- OOP: Bank Account & Student Manager
+│   ├── day5/                                  <- Numerical computing with NumPy (numpy_ops.py)
+│   ├── day6/                                  <- Data cleaning & preprocessing with Pandas (clean_data.py)
+│   └── day7/                                  <- EDA, visualizations & TensorFlow intro (analysis.py)
+│
+├── System7_task2/                             <- TRACK 2: ML Foundations & Core Algorithms
+│   ├── README.md                              <- Task 2 detailed documentation
+│   ├── Definitions/
+│   │   └── DEFINITIONS.md                     <- Comprehensive ML & mathematical glossary
+│   ├── day-01/                                <- ML Foundations: Supervised, Unsupervised, RL
+│   ├── day-02/                                <- Descriptive Statistics: Mean, Variance, Std Dev
+│   ├── day-03/                                <- Linear Algebra: Vectors, Matrices, Dot Products
+│   ├── day-04/                                <- Probability, Correlation, Train/Val/Test Split
+│   ├── day-05/                                <- Linear & Multiple Regression, Scikit-Learn Workflow
+│   ├── day-06/                                <- Classification: Logistic Regression, KNN, Trees, Forests
+│   ├── day-07/                                <- Predictions, Coefficients, Feature Importance
+│   └── tasks/                                 <- End-of-week practical tasks
+│       ├── data/                              <- Raw and processed datasets (train.csv, val.csv, test.csv)
+│       ├── task1_dataset_preparation/         <- Exploration, median imputation, labeling
+│       ├── task2_house_price_predictor/       <- Multi-feature regression pipeline
+│       └── task3_classification_model/        <- Multi-classifier comparison & evaluation
+│
+└── System7-task3/                             <- TRACK 3: Advanced ML, Tuning, Deep Learning & Vision
+    ├── README.md                              <- Task 3 detailed syllabus and daily logs
+    ├── requirements.txt / pyproject.toml      <- Dependencies for Week 3
+    ├── day-15-model-evaluation/               <- Day 15: Cross-validation, Metrics, ROC-AUC
+    │   ├── practice/                          <- Questions Q01–Q05
+    │   ├── figures/                           <- ROC and PR curve plots
+    │   └── Run_file/                          <- Execution screenshots: q01.png – q05.png
+    ├── day-16-tuning-model-comparison/        <- Day 16: ColumnTransformer, GridSearchCV, Overfitting
+    │   ├── README.md                          <- Day 16 notes & task guide
+    │   ├── practice/                          <- Questions Q06–Q08
+    │   ├── figures/                           <- Overfitting vs. tree depth curves
+    │   └── Run_file/                          <- Execution screenshots: q06.png, Q07.png, Q08.png
+    ├── day-17-svm-clustering/                 <- Day 17: SVM, Naive Bayes, K-Means, DBSCAN
+    │   ├── practice/                          <- Questions Q09–Q10
+    │   └── figures/                           <- Elbow method & clustering visualizer
+    ├── day-18-pca-pipelines/                  <- Day 18: PCA, Class Imbalance, Pipeline Leakage
+    │   ├── practice/                          <- Questions Q11–Q13
+    │   └── figures/                           <- PCA 2D projections
+    ├── day-19-neural-networks/                <- Day 19: Perceptrons, Backprop, Keras Optimizers
+    │   ├── practice/                          <- Questions Q14–Q15
+    │   └── figures/                           <- Loss curves (SGD vs. Adam)
+    ├── day-20-cnn-basics/                     <- Day 20: Preprocessing, Augmentation, CIFAR-10 CNN
+    │   └── practice/                          <- Questions Q16–Q17
+    ├── day-21-image-classifier/               <- Day 21: Transfer Learning vs. Scratch, MobileNetV2
+    │   └── practice/                          <- Question Q18
+    └── syllabus Modules/                      <- Week 3 Capstone Modules & Datasets
+        ├── data/                              <- Shared datasets (houses.csv, customers.csv, students.csv)
+        ├── moduleA_model_comparison/          <- Module A: Model comparison & JUSTIFICATION.md
+        ├── moduleB_customer_segmentation/     <- Module B: Clustering & customer profiling
+        ├── moduleC_student_results/           <- Module C: Deep Learning student grade predictor
+        ├── moduleD_image_classifier/          <- Module D: Image classification with CNNs
+        ├── task1_dataset_preparation/         <- Reference preparation scripts
+        ├── task2_house_price_predictor/       <- Reference regression scripts
+        └── task3_classification_model/        <- Reference classification scripts
+```
 
-Core ideas from the root documentation:
+---
 
-- Task 1 is built around Python and data-analysis foundations.
-- Training uses `uv` for dependency management.
-- Scripts are designed to be small, readable, and runnable from their documented commands.
-- Generated charts and datasets are kept alongside the source files.
-- TensorFlow is optional and not required for the default setup.
+## Track Breakdown & Syllabus Guidance
 
-## 2) Task 1: Python and data analysis
+### Track 1: Python & Data Analysis Foundations (`system7_task1/`)
 
-The detailed documentation for the first track is in [system7_task1/README.md](./system7_task1/README.md).
+Track 1 covers software engineering fundamentals in Python, scientific computing, data manipulation, and exploratory data analysis.
 
-This module includes:
+| Day | Primary Script | Core Concept & Output |
+| :--- | :--- | :--- |
+| **Day 1** | [`system7_task1/day1/basics.py`](./system7_task1/day1/basics.py) | Dynamic typing, input sanitization, math operators |
+| **Day 2** | [`system7_task1/day2/calculator_game.py`](./system7_task1/day2/calculator_game.py) | Game loops, conditionals, defensive input validation |
+| **Day 3** | [`system7_task1/day3/data_structures.py`](./system7_task1/day3/data_structures.py) | Collections: Lists, Tuples, Sets, Dictionaries, lookups |
+| **Day 4** | [`system7_task1/day4/bank_account.py`](./system7_task1/day4/bank_account.py)<br>[`system7_task1/day4/student_manager.py`](./system7_task1/day4/student_manager.py) | Object-Oriented Programming (encapsulation, state, methods) |
+| **Day 5** | [`system7_task1/day5/numpy_ops.py`](./system7_task1/day5/numpy_ops.py) | Vectorized math, multi-dimensional array slicing, broadcasting |
+| **Day 6** | [`system7_task1/day6/clean_data.py`](./system7_task1/day6/clean_data.py) | Handling missing values, deduplication, filtering in Pandas |
+| **Day 7** | [`system7_task1/day7/analysis.py`](./system7_task1/day7/analysis.py)<br>[`system7_task1/day7/tensorflow_intro.py`](./system7_task1/day7/tensorflow_intro.py) | Statistical EDA, distributions, heatmaps, introductory tensors |
 
-- Python basics: variables, types, operators, input, loop logic, and functions
-- Data structures: lists, dictionaries, tuples, and sets
-- Object-oriented programming with small apps such as bank account and student management
-- NumPy operations and numerical computing
-- Data cleaning with Pandas and CSV processing
-- Visualization with Matplotlib and Seaborn
-- Summary statistics and correlation analysis
-- A short TensorFlow introduction
+---
 
-### Task 1 exercise table
+### Track 2: Classical Machine Learning & Statistical Foundations (`System7_task2/`)
 
-| Day | File | Topic |
-| --- | --- | --- |
-| 1 | [system7_task1/day1/basics.py](./system7_task1/day1/basics.py) | Python variables, operators, input, and output |
-| 2 | [system7_task1/day2/calculator_game.py](./system7_task1/day2/calculator_game.py) | Calculator game and control flow |
-| 3 | [system7_task1/day3/data_structures.py](./system7_task1/day3/data_structures.py) | Python data structures |
-| 4 | [system7_task1/day4/bank_account.py](./system7_task1/day4/bank_account.py) | Classes and bank-account operations |
-| 4 | [system7_task1/day4/student_manager.py](./system7_task1/day4/student_manager.py) | Student management |
-| 5 | [system7_task1/day5/numpy_ops.py](./system7_task1/day5/numpy_ops.py) | NumPy operations |
-| 6 | [system7_task1/day6/clean_data.py](./system7_task1/day6/clean_data.py) | Create and clean a student dataset |
-| 7 | [system7_task1/day7/analysis.py](./system7_task1/day7/analysis.py) | CSV analysis, statistics, and charts |
-| 7 | [system7_task1/day7/tensorflow_intro.py](./system7_task1/day7/tensorflow_intro.py) | TensorFlow tensors and variables |
+Track 2 establishes the core mathematical concepts and classical ML workflows through Scikit-Learn.
 
-### Day 7 results captured in the docs
+#### Daily Syllabus:
+- **Day 01:** AI vs. Machine Learning vs. Deep Learning; Supervised, Unsupervised, Reinforcement Learning.
+- **Day 02:** Descriptive Statistics: Mean, Median, Mode, Variance, Standard Deviation.
+- **Day 03:** Linear Algebra: Vector spaces, matrix-vector multiplication, dot products.
+- **Day 04:** Probability, correlation matrices, and 60/20/20 train-val-test dataset splitting.
+- **Day 05:** Linear and multiple regression; the 4-step Scikit-Learn API: `split -> fit -> predict -> evaluate`.
+- **Day 06:** Classification algorithms: Logistic Regression, K-Nearest Neighbors, Decision Trees, Random Forests.
+- **Day 07:** Model inference, inspecting coefficients ($\beta$), and feature importance.
+- **ML Glossary:** Comprehensive definitions available in [`System7_task2/Definitions/DEFINITIONS.md`](./System7_task2/Definitions/DEFINITIONS.md).
 
-The Task 1 documentation reports the following analysis results from the cleaned student dataset:
+#### Practical Tasks:
+1. **Dataset Preparation (`tasks/task1_dataset_preparation/`):** Missing-value imputation with medians, price thresholding, and generating `train.csv`, `val.csv`, `test.csv`.
+2. **House Price Predictor (`tasks/task2_house_price_predictor/`):** Simple vs. Multiple Linear Regression comparison evaluated on MAE, RMSE, and $R^2$.
+3. **Classification Model (`tasks/task3_classification_model/`):** Comparing tree ensembles and linear classifiers with confusion matrices and classification reports.
 
-- 190 cleaned student records were analyzed
-- Mean score: 74.12
-- Highest department mean: AI, with 75.40
-- Study-hours-to-score correlation: 0.82
+---
 
-Generated outputs include summary reports and charts in [system7_task1/day7](./system7_task1/day7).
+### Track 3: Advanced ML, Tuning, Neural Networks & Vision (`System7-task3/`)
 
-## 3) Task 2: Machine learning and model-building workflow
+Track 3 focuses on production-grade machine learning pipelines, hyperparameter search, deep neural networks, and computer vision.
 
-The task 2 materials are centered on a machine-learning study path covering probability, correlation, data splitting, regression, and classification.
+#### Practice Questions & Verified Execution Records:
+Every practice question script is paired with an output screenshot in its day's `Run_file/` folder:
 
-### Day 4: Probability, correlation, and data splitting
+| # | Difficulty | Day | Script Path | Output Record (`Run_file/`) |
+| :-: | :--- | :-: | :--- | :--- |
+| **Q01** | Easy | 15 | [`day-15-model-evaluation/practice/q01_split_stratify.py`](./System7-task3/day-15-model-evaluation/practice/q01_split_stratify.py) | [`day-15-model-evaluation/Run_file/q01.png`](./System7-task3/day-15-model-evaluation/Run_file/q01.png) |
+| **Q02** | Easy | 15 | [`day-15-model-evaluation/practice/q02_classification_metrics.py`](./System7-task3/day-15-model-evaluation/practice/q02_classification_metrics.py) | [`day-15-model-evaluation/Run_file/q02.png`](./System7-task3/day-15-model-evaluation/Run_file/q02.png) |
+| **Q03** | Easy | 15 | [`day-15-model-evaluation/practice/q03_regression_metrics.py`](./System7-task3/day-15-model-evaluation/practice/q03_regression_metrics.py) | [`day-15-model-evaluation/Run_file/q03.png`](./System7-task3/day-15-model-evaluation/Run_file/q03.png) |
+| **Q04** | Medium | 15 | [`day-15-model-evaluation/practice/q04_cross_validation.py`](./System7-task3/day-15-model-evaluation/practice/q04_cross_validation.py) | [`day-15-model-evaluation/Run_file/q04.png`](./System7-task3/day-15-model-evaluation/Run_file/q04.png) |
+| **Q05** | Medium | 15 | [`day-15-model-evaluation/practice/q05_roc_curves.py`](./System7-task3/day-15-model-evaluation/practice/q05_roc_curves.py) | [`day-15-model-evaluation/Run_file/q05.png`](./System7-task3/day-15-model-evaluation/Run_file/q05.png) |
+| **Q06** | Medium | 16 | [`day-16-tuning-model-comparison/practice/q06_tree_depth_overfitting.py`](./System7-task3/day-16-tuning-model-comparison/practice/q06_tree_depth_overfitting.py) | [`day-16-tuning-model-comparison/Run_file/q06.png`](./System7-task3/day-16-tuning-model-comparison/Run_file/q06.png) |
+| **Q07** | Medium | 16 | [`day-16-tuning-model-comparison/practice/q07_column_transformer.py`](./System7-task3/day-16-tuning-model-comparison/practice/q07_column_transformer.py) | [`day-16-tuning-model-comparison/Run_file/Q07.png`](./System7-task3/day-16-tuning-model-comparison/Run_file/Q07.png) |
+| **Q08** | Medium | 16 | [`day-16-tuning-model-comparison/practice/q08_svm_tuning.py`](./System7-task3/day-16-tuning-model-comparison/practice/q08_svm_tuning.py) | [`day-16-tuning-model-comparison/Run_file/Q08.png`](./System7-task3/day-16-tuning-model-comparison/Run_file/Q08.png) |
+| **Q09** | Medium | 17 | `day-17-svm-clustering/practice/q09_kmeans_choose_k.py` | `day-17-svm-clustering/Run_file/` |
+| **Q10** | Medium | 17 | `day-17-svm-clustering/practice/q10_naive_bayes_vs_svm.py` | `day-17-svm-clustering/Run_file/` |
+| **Q11** | Medium | 18 | `day-18-pca-pipelines/practice/q11_imbalanced_class_weight.py` | `day-18-pca-pipelines/Run_file/` |
+| **Q12** | Hard | 18 | `day-18-pca-pipelines/practice/q12_pca_2d.py` | `day-18-pca-pipelines/Run_file/` |
+| **Q13** | Hard | 18 | `day-18-pca-pipelines/practice/q13_pipeline_leakage.py` | `day-18-pca-pipelines/Run_file/` |
+| **Q14** | Easy | 19 | `day-19-neural-networks/practice/q14_perceptron_and.py` | `day-19-neural-networks/Run_file/` |
+| **Q15** | Medium | 19 | `day-19-neural-networks/practice/q15_keras_sgd_vs_adam.py` | `day-19-neural-networks/Run_file/` |
+| **Q16** | Medium | 20 | `day-20-cnn-basics/practice/q16_resize_augment.py` | `day-20-cnn-basics/Run_file/` |
+| **Q17** | Hard | 20 | `day-20-cnn-basics/practice/q17_cnn_cifar10.py` | `day-20-cnn-basics/Run_file/` |
+| **Q18** | Hard | 21 | `day-21-image-classifier/practice/q18_transfer_vs_scratch.py` | `day-21-image-classifier/Run_file/` |
 
-From [System7_task2/day-04/README.md](./System7_task2/day-04/README.md):
+#### End-of-Week Capstone Tasks (`syllabus Modules/`):
+- **Module A — Model Comparison:** Systematic comparison across multiple regression and classification estimators with benchmark write-up in `JUSTIFICATION.md`.
+- **Module B — Customer Segmentation:** Unsupervised clustering (K-Means, Hierarchical, DBSCAN) combined with 2D/3D PCA visualizations.
+- **Module C — Neural Network Predictor:** Multi-layer Perceptron (MLP) built with Keras/TensorFlow to predict student academic outcomes.
+- **Module D — Image Classifier:** End-to-end vision pipeline utilizing Convolutional Neural Networks and MobileNetV2 transfer learning on CIFAR-10.
 
-- Topic: probability, correlation, basic statistics
-- Focus: training, validation, and testing datasets
-- Example file: [System7_task2/day-04/example.py](./System7_task2/day-04/example.py)
-- Goal: estimate a probability, compute a correlation matrix, and split data into 60/20/20 train-validation-test groups
+---
 
-### Day 5: Regression and the scikit-learn workflow
+## Execution & Setup Guidance
 
-From [System7_task2/day-05/README.md](./System7_task2/day-05/README.md):
+This repository uses modern, fast Python package tooling via [`uv`](https://github.com/astral-sh/uv).
 
-- Topic: linear and multiple regression
-- Focus: classification versus regression
-- Example file: [System7_task2/day-05/example.py](./System7_task2/day-05/example.py)
-- Goal: follow the four-stage scikit-learn workflow: split, fit, predict, evaluate
+### 1. Environment Setup
 
-### Day 6: Classification models
-
-From [System7_task2/day-06/README.md](./System7_task2/day-06/README.md):
-
-- Topic: logistic regression, KNN, decision trees, and random forests
-- Example file: [System7_task2/day-06/example.py](./System7_task2/day-06/example.py)
-- Goal: train multiple classifiers and compare their accuracy
-
-### Day 7: Predictions, coefficients, and feature importance
-
-From [System7_task2/day-07/README.md](./System7_task2/day-07/README.md):
-
-- Topic: prediction, coefficients, feature importance
-- Focus: work for the Task 2 house-price predictor and the Task 3 classification model
-- Example file: [System7_task2/day-07/example.py](./System7_task2/day-07/example.py)
-- Goal: read model coefficients and tree feature importance on the housing dataset
-
-## 4) Task 2 data and project tasks
-
-The weekday exercises lead into the end-of-module task implementations under [System7_task2/tasks](./System7_task2/tasks).
-
-### Task 1: Explore and prepare a dataset
-
-From [System7_task2/tasks/task1_dataset_preparation/README.md](./System7_task2/tasks/task1_dataset_preparation/README.md):
-
-- Goal: load and clean the house dataset, generate a useful classification label, and split data into train/validation/test sets
-- Script: [System7_task2/tasks/task1_dataset_preparation/prepare_dataset.py](./System7_task2/tasks/task1_dataset_preparation/prepare_dataset.py)
-- Output files: [System7_task2/tasks/data/processed/train.csv](./System7_task2/tasks/data/processed/train.csv), [System7_task2/tasks/data/processed/val.csv](./System7_task2/tasks/data/processed/val.csv), [System7_task2/tasks/data/processed/test.csv](./System7_task2/tasks/data/processed/test.csv)
-- Workflow:
-  1. Read the house dataset
-  2. Inspect shape, dtypes, and summary statistics
-  3. Fill missing values with median values
-  4. Remove duplicates
-  5. Create `is_expensive` label
-  6. Save processed splits
-
-### Task 2: House-price predictor
-
-From [System7_task2/tasks/task2_house_price_predictor/README.md](./System7_task2/tasks/task2_house_price_predictor/README.md):
-
-- Goal: predict house price using linear regression models
-- Script: [System7_task2/tasks/task2_house_price_predictor/house_price_predictor.py](./System7_task2/tasks/task2_house_price_predictor/house_price_predictor.py)
-- Workflow:
-  1. Load the dataset and handle missing values with a scikit-learn pipeline
-  2. Train a simple linear model using area only
-  3. Train a multiple regression model with all features
-  4. Compare performance (MAE, RMSE, R²)
-  5. Print coefficients and predict a new house price
-
-### Task 3: Basic classification model
-
-From [System7_task2/tasks/task3_classification_model/README.md](./System7_task2/tasks/task3_classification_model/README.md):
-
-- Goal: classify houses as expensive or not expensive
-- Script: [System7_task2/tasks/task3_classification_model/classification_model.py](./System7_task2/tasks/task3_classification_model/classification_model.py)
-- Workflow:
-  1. Create the label using the training median price
-  2. Train logistic regression, KNN, decision tree, and random forest models
-  3. Compare performance on validation data
-  4. Evaluate the selected model on the test set
-  5. Display confusion matrix, classification report, and feature importance
-
-## 5) ML glossary and definitions
-
-The definitions file, [System7_task2/Definitions/DEFINITIONS.md](./System7_task2/Definitions/DEFINITIONS.md), provides a compact glossary covering:
-
-- ML foundations: AI, ML, deep learning, supervised learning, unsupervised learning, reinforcement learning
-- Statistics: mean, median, mode, variance, standard deviation, probability, correlation
-- Linear algebra: vectors, matrices, dot products
-- Data splitting: training, validation, and testing sets
-- Models: linear regression, multiple regression, logistic regression, KNN, decision trees, random forests
-- Scikit-learn workflow: estimator, `fit(X, y)`, `predict(X)`, coefficients, feature importance, pipelines
-
-This glossary acts as a quick reference for the concepts used throughout the ML exercises.
-
-## 6) Practical commands
-
-The docs reference the following commands for setup and execution.
-
-### Task 1 setup
-
+#### Track 1 (`system7_task1`):
 ```powershell
 cd system7_task1
 uv sync
-uv run python .\day1\basics.py
-uv run python .\day6\clean_data.py
-uv run python .\day7\analysis.py
 ```
 
-### Task 2 script execution
-
-```bash
-python tasks/task1_dataset_preparation/prepare_dataset.py
-python tasks/task2_house_price_predictor/house_price_predictor.py
-python tasks/task3_classification_model/classification_model.py
+#### Track 3 (`System7-task3`):
+```powershell
+cd System7-task3
+uv sync
 ```
 
-## Final takeaway
+---
 
-Together, these files show a complete internship journey:
+### 2. Running Practice Scripts
 
-- Python fundamentals and data analysis in Task 1
-- Statistical and ML concepts in the day-by-day learning path
-- Real ML workflows in the Task 2 dataset preparation, regression, and classification tasks
+To run any practice script inside its isolated virtual environment, use `uv run`:
 
-This single summary consolidates the documentation into one place for easier review and navigation.
+```powershell
+# Example: Run Day 16 ColumnTransformer practice
+cd System7-task3
+uv run .\day-16-tuning-model-comparison\practice\q07_column_transformer.py
+
+# Example: Run Day 16 Overfitting inspection
+uv run .\day-16-tuning-model-comparison\practice\q06_tree_depth_overfitting.py
+
+# Example: Run Day 16 SVM tuning comparison
+uv run .\day-16-tuning-model-comparison\practice\q08_svm_tuning.py
+```
+
+---
+
+### 3. Running Module Capstone Tasks
+
+```powershell
+cd System7-task3
+
+# Module A: Model Comparison
+uv run ".\syllabus Modules\moduleA_model_comparison\compare_models.py"
+
+# Module B: Customer Segmentation
+uv run ".\syllabus Modules\moduleB_customer_segmentation\segment_customers.py"
+
+# Module C: Student Results Deep Learning
+uv run ".\syllabus Modules\moduleC_student_results\predict_student_results.py"
+
+# Module D: CNN Image Classifier
+uv run ".\syllabus Modules\moduleD_image_classifier\image_classifier.py"
+```
+
+---
+
+## Output Verification & Record Keeping
+
+When running scripts in this repository:
+1. **Plots & Visualizations:** Auto-saved into each day's `figures/` directory (e.g. `day-15-model-evaluation/figures/`, `day-16-tuning-model-comparison/figures/`).
+2. **Terminal Records & Screenshots:** Stored in each day's `Run_file/` directory (e.g. `Run_file/q06.png`, `Run_file/Q07.png`, `Run_file/Q08.png`) to preserve reproducible execution proof.

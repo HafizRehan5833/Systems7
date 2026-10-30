@@ -54,28 +54,28 @@ ends with one commit named after that folder.
 
 ## Practice Questions (Week 3)
 
-Each question is a separate file in its day's `practice/` folder.
+Each question is a separate file in its day's `practice/` folder. Execution output screenshots and records for running files are stored inside each day's `Run_file/` folder.
 
-| # | Level | Day | File |
-| --- | --- | --- | --- |
-| 1 | Easy | 15 | `day-15-model-evaluation/practice/q01_split_stratify.py` |
-| 2 | Easy | 15 | `day-15-model-evaluation/practice/q02_classification_metrics.py` |
-| 3 | Easy | 15 | `day-15-model-evaluation/practice/q03_regression_metrics.py` |
-| 4 | Medium | 15 | `day-15-model-evaluation/practice/q04_cross_validation.py` |
-| 5 | Medium | 15 | `day-15-model-evaluation/practice/q05_roc_curves.py` |
-| 6 | Medium | 16 | `day-16-tuning-model-comparison/practice/q06_tree_depth_overfitting.py` |
-| 7 | Medium | 16 | `day-16-tuning-model-comparison/practice/q07_column_transformer.py` |
-| 8 | Medium | 16 | `day-16-tuning-model-comparison/practice/q08_svm_tuning.py` |
-| 9 | Medium | 17 | `day-17-svm-clustering/practice/q09_kmeans_choose_k.py` |
-| 10 | Medium | 17 | `day-17-svm-clustering/practice/q10_naive_bayes_vs_svm.py` |
-| 11 | Medium | 18 | `day-18-pca-pipelines/practice/q11_imbalanced_class_weight.py` |
-| 12 | Hard | 18 | `day-18-pca-pipelines/practice/q12_pca_2d.py` |
-| 13 | Hard | 18 | `day-18-pca-pipelines/practice/q13_pipeline_leakage.py` |
-| 14 | Easy | 19 | `day-19-neural-networks/practice/q14_perceptron_and.py` |
-| 15 | Medium | 19 | `day-19-neural-networks/practice/q15_keras_sgd_vs_adam.py` |
-| 16 | Medium | 20 | `day-20-cnn-basics/practice/q16_resize_augment.py` |
-| 17 | Hard | 20 | `day-20-cnn-basics/practice/q17_cnn_cifar10.py` |
-| 18 | Hard | 21 | `day-21-image-classifier/practice/q18_transfer_vs_scratch.py` |
+| # | Level | Day | File | Run Record |
+| --- | --- | --- | --- | --- |
+| 1 | Easy | 15 | `day-15-model-evaluation/practice/q01_split_stratify.py` | [`day-15-model-evaluation/Run_file/q01.png`](day-15-model-evaluation/Run_file/q01.png) |
+| 2 | Easy | 15 | `day-15-model-evaluation/practice/q02_classification_metrics.py` | [`day-15-model-evaluation/Run_file/q02.png`](day-15-model-evaluation/Run_file/q02.png) |
+| 3 | Easy | 15 | `day-15-model-evaluation/practice/q03_regression_metrics.py` | [`day-15-model-evaluation/Run_file/q03.png`](day-15-model-evaluation/Run_file/q03.png) |
+| 4 | Medium | 15 | `day-15-model-evaluation/practice/q04_cross_validation.py` | [`day-15-model-evaluation/Run_file/q04.png`](day-15-model-evaluation/Run_file/q04.png) |
+| 5 | Medium | 15 | `day-15-model-evaluation/practice/q05_roc_curves.py` | [`day-15-model-evaluation/Run_file/q05.png`](day-15-model-evaluation/Run_file/q05.png) |
+| 6 | Medium | 16 | `day-16-tuning-model-comparison/practice/q06_tree_depth_overfitting.py` | [`day-16-tuning-model-comparison/Run_file/q06.png`](day-16-tuning-model-comparison/Run_file/q06.png) |
+| 7 | Medium | 16 | `day-16-tuning-model-comparison/practice/q07_column_transformer.py` | [`day-16-tuning-model-comparison/Run_file/Q07.png`](day-16-tuning-model-comparison/Run_file/Q07.png) |
+| 8 | Medium | 16 | `day-16-tuning-model-comparison/practice/q08_svm_tuning.py` | [`day-16-tuning-model-comparison/Run_file/Q08.png`](day-16-tuning-model-comparison/Run_file/Q08.png) |
+| 9 | Medium | 17 | `day-17-svm-clustering/practice/q09_kmeans_choose_k.py` | — |
+| 10 | Medium | 17 | `day-17-svm-clustering/practice/q10_naive_bayes_vs_svm.py` | — |
+| 11 | Medium | 18 | `day-18-pca-pipelines/practice/q11_imbalanced_class_weight.py` | — |
+| 12 | Hard | 18 | `day-18-pca-pipelines/practice/q12_pca_2d.py` | — |
+| 13 | Hard | 18 | `day-18-pca-pipelines/practice/q13_pipeline_leakage.py` | — |
+| 14 | Easy | 19 | `day-19-neural-networks/practice/q14_perceptron_and.py` | — |
+| 15 | Medium | 19 | `day-19-neural-networks/practice/q15_keras_sgd_vs_adam.py` | — |
+| 16 | Medium | 20 | `day-20-cnn-basics/practice/q16_resize_augment.py` | — |
+| 17 | Hard | 20 | `day-20-cnn-basics/practice/q17_cnn_cifar10.py` | — |
+| 18 | Hard | 21 | `day-21-image-classifier/practice/q18_transfer_vs_scratch.py` | — |
 
 ## Folder Structure
 
@@ -94,10 +94,14 @@ System7-Repository/
 ├── day-13-classification-models/      <- Week 2, Day 6
 ├── day-14-house-price-classifier/     <- Week 2, Day 7
 ├── day-15-model-evaluation/           <- Week 3, Day 1 (Module A)
-│   ├── README.md                      <- topics, practice list, learning notes
 │   ├── practice/                      <- Questions 1–5, one file each
-│   └── figures/                       <- plots created by the practice scripts
+│   ├── figures/                       <- plots created by the practice scripts
+│   └── Run_file/                      <- execution records / screenshots of outputs (q01–q05)
 ├── day-16-tuning-model-comparison/    <- Week 3, Day 2 (Module A)
+│   ├── README.md                      <- topics, practice list, learning notes
+│   ├── practice/                      <- Questions 6–8, one file each
+│   ├── figures/                       <- plots created by the practice scripts
+│   └── Run_file/                      <- execution records / screenshots of outputs (q06–q08)
 ├── day-17-svm-clustering/             <- Week 3, Day 3 (Module B)
 ├── day-18-pca-pipelines/              <- Week 3, Day 4 (Module B)
 ├── day-19-neural-networks/            <- Week 3, Day 5 (Module C)
@@ -154,8 +158,8 @@ Update this list at the end of each day.
 - [ ] Day 7 – Predictions, coefficients, feature importance, Tasks 2 and 3
 
 ### Week 3
-- [ ] Day 1 – Model evaluation (Q1–Q5, learning note on metrics)
-- [ ] Day 2 – Tuning and model comparison (Q6–Q8, Module A task, bias–variance note)
+- [x] Day 1 – Model evaluation (Q1–Q5 completed, output records in `Run_file/`)
+- [ ] Day 2 – Tuning and model comparison (Q6–Q8 completed, output records in `Run_file/`; Module A task, bias–variance note)
 - [ ] Day 3 – SVM and clustering (Q9–Q10, note on choosing k and DBSCAN)
 - [ ] Day 4 – PCA and pipelines (Q11–Q13, Module B segmentation task, leakage and dimensionality notes)
 - [ ] Day 5 – Neural networks (Q14–Q15, Module C task, activation and training-settings notes)

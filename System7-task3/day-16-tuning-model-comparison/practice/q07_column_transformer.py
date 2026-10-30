@@ -14,8 +14,13 @@ from sklearn.linear_model import Ridge
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
-
-DATA = Path(__file__).resolve().parents[2] / "tasks" / "data" / "houses.csv"
+try:
+    print("Data loaded .")
+    DATA = Path(__file__).resolve().parents[2] / "syllabus Modules" / "data" / "houses.csv"
+except Exception as e:
+    print(e)
+    
+        
 df = pd.read_csv(DATA)
 rng = np.random.default_rng(0)
 df["neighbourhood"] = rng.choice(["north", "south", "east", "west"], size=len(df))
@@ -31,6 +36,7 @@ preprocess = ColumnTransformer(
 )
 model = make_pipeline(preprocess, Ridge(alpha=1.0))
 
+    
 X_train, X_test, y_train, y_test = train_test_split(
     df[numeric + categorical], df["price"], test_size=0.2, random_state=42)
 model.fit(X_train, y_train)
