@@ -1,4 +1,3 @@
-"""Task 2: house-price predictor using simple and multiple linear regression."""
 from pathlib import Path
 
 import numpy as np

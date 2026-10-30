@@ -1,4 +1,3 @@
-# System 7 - Task 2
 
 ## Completed each day
 
