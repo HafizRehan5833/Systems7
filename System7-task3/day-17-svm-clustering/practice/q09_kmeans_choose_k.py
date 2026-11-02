@@ -13,8 +13,7 @@ from sklearn.metrics import silhouette_score
 from sklearn.preprocessing import StandardScaler
 
 FIG_DIR = Path(__file__).resolve().parents[1] / "figures"
-DATA = Path(__file__).resolve().parents[2] / "tasks" / "data" / "customers.csv"
-
+DATA =Path(__file__).resolve().parents[2] / "syllabus Modules" / "data" / "customers.csv"
 df = pd.read_csv(DATA)
 X = StandardScaler().fit_transform(df.drop(columns="customer_id"))  # clustering needs scaled features
 
