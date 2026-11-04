@@ -17,9 +17,9 @@ from image_data import CLASS_NAMES, load_cifar10, to_unit_range  # noqa: E402
 
 HERE = Path(__file__).resolve().parent
 MODEL_PATH = HERE / "image_classifier.keras"
-TRAIN_SUBSET = 10000     # use None for all 50,000 images
-EPOCHS_HEAD = 3          # stage 1: train only the new head
-EPOCHS_FINE = 2          # stage 2: fine-tune the top of the base
+TRAIN_SUBSET = 10000     
+EPOCHS_HEAD = 3          
+POCHS_FINE = 2          # stage 2: fine-tune the top of the base
 FINE_TUNE_LAYERS = 30    # how many top layers of MobileNetV2 to unfreeze
 VAL_SIZE = 2000          # validation images taken from the END of the training set
 tf.keras.utils.set_random_seed(42)
@@ -41,14 +41,10 @@ def build_model() -> tf.keras.Model:
 
 
 def train(model, base, x_train, y_train, x_val, y_val):
-    # Stage 1: feature extraction
     model.compile(optimizer=tf.keras.optimizers.Adam(1e-3),
                   loss="sparse_categorical_crossentropy", metrics=["accuracy"])
     model.fit(x_train, y_train, validation_data=(x_val, y_val),
               epochs=EPOCHS_HEAD, batch_size=64, verbose=2)
-
-    # Stage 2: fine-tuning with a much smaller learning rate, so pretrained
-    # features are adjusted gently rather than overwritten
     base.trainable = True
     for layer in base.layers[:-FINE_TUNE_LAYERS]:
         layer.trainable = False
@@ -104,7 +100,6 @@ def main() -> None:
     if TRAIN_SUBSET:
         x_train, y_train = x_train[:TRAIN_SUBSET], y_train[:TRAIN_SUBSET]
     x_train, x_test = to_unit_range(x_train), to_unit_range(x_test)
-    # Validation images come from the end of the training set; the test set is never used for tuning
     x_val, y_val = x_train[-VAL_SIZE:], y_train[-VAL_SIZE:]
     x_train, y_train = x_train[:-VAL_SIZE], y_train[:-VAL_SIZE]
 

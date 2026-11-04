@@ -28,8 +28,6 @@ def main() -> None:
     train_val, test = train_test_split(df, test_size=0.20, random_state=42)
     train, val = train_test_split(train_val, test_size=0.25, random_state=42)
 
-    # Pipeline: fill missing values with the median, then fit the regression.
-    # Putting the imputer inside the pipeline stops validation data leaking into training.
     def make_model():
         return make_pipeline(SimpleImputer(strategy="median"), LinearRegression())
 
@@ -40,20 +38,15 @@ def main() -> None:
     multi = make_model().fit(train[FEATURES], train[TARGET])
     r2_multi = evaluate("Multiple (5 features)", multi, val[FEATURES], val[TARGET])
 
-    # Coefficients: the change in price for a one-unit increase in each feature,
-    # holding the other features fixed. Example reading: if the area coefficient
-    # is 120, each extra square foot adds about 120 to the predicted price.
     coefs = pd.Series(multi.named_steps["linearregression"].coef_, index=FEATURES)
     print("\n=== Coefficients (multiple regression) ===")
     print(coefs.round(1).to_string())
     print(f"Intercept: {multi.named_steps['linearregression'].intercept_:,.1f}")
 
-    # Final check on the untouched test set
     print("\n=== Test set (multiple regression) ===")
     pred_test = multi.predict(test[FEATURES])
     print(f"MAE={mean_absolute_error(test[TARGET], pred_test):,.0f}  R²={r2_score(test[TARGET], pred_test):.3f}")
 
-    # Predict a new house
     new_house = pd.DataFrame([{
         "area_sqft": 1800, "bedrooms": 3, "bathrooms": 2,
         "age_years": 8, "distance_km": 5.0,

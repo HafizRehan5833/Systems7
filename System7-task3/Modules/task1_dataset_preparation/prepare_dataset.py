@@ -24,7 +24,7 @@ def explore(df: pd.DataFrame) -> None:
 
 def clean(df: pd.DataFrame) -> pd.DataFrame:
     df = df.drop_duplicates().copy()
-    # Fill missing numbers with the column median
+   
     for col in df.columns[df.isna().any()]:
         df[col] = df[col].fillna(df[col].median())
     return df
@@ -49,8 +49,6 @@ def main() -> None:
     df = clean(raw)
     print(f"\nRows after cleaning: {len(df)} (removed {len(raw) - len(df)})")
 
-    # The label threshold is the median price, computed on the training split
-    # only so that no information leaks from validation/test data.
     train, val, test = split(df)
     threshold = train["price"].median()
     train, val, test = (add_label(d, threshold) for d in (train, val, test))
